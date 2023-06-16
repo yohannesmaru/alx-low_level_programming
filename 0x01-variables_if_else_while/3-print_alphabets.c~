@@ -1,0 +1,22 @@
+#include <stdio.h>
+/**
+ * main - Prints the alphabet A-Z.
+ *With uppercase and lowercase
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	int i;
+	int j;
+
+	for (i = 'a'; i <= 'z'; i++)
+	{
+		putchar(i);
+	}
+	for (j = 'A'; j <= 'Z'; i++)
+	{
+		putchar(i);
+	}
+	putchar('\n');
+	return (0);
+}
