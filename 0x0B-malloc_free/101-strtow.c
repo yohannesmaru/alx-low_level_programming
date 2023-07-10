@@ -8,9 +8,9 @@
 */
 int count_word(char *s)
 {
-int flag = 0, w = 0;
+int flag = 0, w = 0, c;
 
-for (int c = 0; s[c] != '\0'; c++)
+for (c = 0; s[c] != '\0'; c++)
 {
 if (s[c] == ' ')
 flag = 0;
@@ -31,21 +31,22 @@ return (w);
 */
 char **strtow(char *str)
 {
+char **matrix;
+int len, words, start, k, c, i, j;
+
 if (str == NULL || *str == '\0')
 return (NULL);
 
-int len = 0;
 while (str[len] != '\0')
 len++;
-
-int words = count_word(str);
+words = count_word(str);
 if (words == 0)
 return (NULL);
-char **matrix = malloc(sizeof(char *) * (words + 1));
+matrix = malloc(sizeof(char *) * (words + 1));
 if (matrix == NULL)
 return (NULL);
-int start = 0, k = 0, c = 0;
-for (int i = 0; str[i] != '\0'; i++)
+start = 0, k = 0, c = 0;
+for (i = 0; str[i] != '\0'; i++)
 {
 if (str[i] == ' ' || str[i] == '\0')
 {
@@ -55,7 +56,7 @@ int end = i - 1;
 char *tmp = malloc(sizeof(char) * (c + 1));
 if (tmp == NULL)
 return (NULL);
-int j = 0;
+j = 0;
 while (start <= end)
 tmp[j++] = str[start++];
 tmp[j] = '\0';
